@@ -28,7 +28,6 @@ _______________________________________________________________________________
 	* Package Manager: [Apt](https://www.raspberrypi.org/documentation/linux/software/apt.md)
 	* [Configuration Details](https://www.raspberrypi.org/documentation/configuration/)
 	* [Preinstalled Software](https://www.raspberrypi.org/documentation/usage/)
-* Security: [Obscurity]()
 * Scheduling: [SLURM](https://slurm.schedmd.com/overview.html)
 	* Version:
 		* 19.05.1-2

@@ -50,7 +50,7 @@ def check_default_count():
 def clear_most_defaults():
     if check_default_count() <= 1:
         return 
-    output = subprocess.check_output("ip route del default", shell=True)
+    output = subprocess.check_output("sudo ip route del default", shell=True)
     return output
 
 def mylog(msg):

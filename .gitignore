@@ -1,1 +1,3 @@
 # initial commit
+.mypy_cache/*
+.vscode/*

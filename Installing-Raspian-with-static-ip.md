@@ -27,6 +27,8 @@ static routers=10.3.14.239
 static domain_name_servers=10.3.14.2
 
 nohook lookup-hostname
+static domain_search=
+nogateway
 ```
 
 Make sure to replace {id} with the Pi's id. 10-24 for the compute nodes or 1 for the head node.

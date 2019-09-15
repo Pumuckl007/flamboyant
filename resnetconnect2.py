@@ -38,23 +38,31 @@ def get_redirect_url():
         url = kv['URL'].split('"')[0]
         return url 
     except:
+	print("We got an error from the socket")
         return None
 
 
 def check_default_count():
     output = subprocess.check_output("ip route", shell=True)
+    print("ip rote:")
+    print(output)
     lines = output.split('\n')
     defaults = [d for d in lines if d.startswith('default')]
     return len(defaults)
 
 def clear_most_defaults():
-    if check_default_count() <= 1:
+    defaultCount = check_default_count()
+    if defaultCount == 1:
         return 
+    if defaultCount < 1:
+        print("Too few routes!")
+        subprocess.check_output("sudo ip route add default via 100.64.64.1", shell=True)
+	return
     output = subprocess.check_output("sudo ip route del default", shell=True)
     return output
 
 def mylog(msg):
-    #print(msg)
+    print(msg)
     pass
 
 def auth_guest():
@@ -125,5 +133,10 @@ def url_encode(data):
         import urllib
         return urllib.urlencode(data)
 
-clear_most_defaults()
+print("Starting")
+time.sleep(10)
+print("Slept for 10")
+#clear_most_defaults()
 auth_guest()
+subprocess.check_output("sudo service ntp restart", shell=True)
+print("Done")

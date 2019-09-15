@@ -9,6 +9,21 @@ whenever you use the network. Transcribed they are :
 * UC San Diego reserves the right to terminate your connection at any time.
 * Your unencrypted Internet traffic will be monitored.
 
+## WPASupplicant
+In order for the PI to connect to the UCSD Guest wifi network it must have
+the SSID specified in the WPASupplicant file. On flam this file is located
+at /etc/wpa_supplicant/wpa_supplicant.conf. This file should read
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+	ssid="UCSD-GUEST"
+	key_mgmt=NONE
+}
+```
+
 ## The connection script
 UCSD Guest wifi requires clients to authenticate through a web form. We wrote
 a script to allow the Pis to connect to UCSD Guest by authenticating through
